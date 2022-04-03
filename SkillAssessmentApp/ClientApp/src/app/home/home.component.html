@@ -1,0 +1,70 @@
+<p id="desc"></p>
+<div id="acuant-loader" class="row text-center" style="display:none;">
+  <div class="col-md-12">
+    <div class="loader" style="margin: 20% auto 0 auto"></div>
+  </div>
+</div>
+<div id="camera-btn" class="row text-center" style="display:none; margin:10% 0 10% 0">
+  <div class="col-md-6 btn-group">
+    <button class="btn btn-success mr-2" onClick="openFaceCaptureCamera()">Passive Liveness</button>
+    <button class="btn btn-success mr-2" onClick="openCamera()">Open Camera</button>
+  </div>
+</div>
+<div id="acuant-face-capture-container" class="face-camera-container">
+  <div id="face-detection-text" class="detection-state"></div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <div id="acuant-camera"></div>
+  </div>
+</div>
+<div id="result-face" style="display:none;">
+  <div class="row from-group text-center mt-2">
+    <label class="col-md-2" for="face-score">Score: </label>
+    <input class="form-control col-md-3" id="face-score" value="" />
+    <label class="col-md-2" for="face-result">Result: </label>
+    <input class="form-control col-md-3" id="face-result" value="" />
+  </div>
+  <div class="row from-group text-center mt-2">
+    <label class="col-md-2" for="face-error-code">Error Code: </label>
+    <input class="form-control col-md-3" id="face-error-code" value="" />
+    <label class="col-md-2" for="face-error-description">Description: </label>
+    <textarea class="form-control col-md-3" id="face-error-description" value=""></textarea>
+  </div>
+  <div class="row from-group text-center">
+    <label class="col-md-2" for="face-transaction">TransactionId: </label>
+    <input class="form-control col-md-3" id="face-transaction" value="" />
+  </div>
+</div>
+<div id="result-id" style="display:none">
+  <div class="row text-center">
+    <div class="col-md-12">
+      <p id="result-error" style="display:none">An error has occurred while cropping the image. Please try again.</p>
+      <canvas id="result-id-img" class="fit-screen" style="display:block"></canvas>
+    </div>
+  </div>
+  <div class="row text-center" style="margin-top:1%">
+    <div class="col-md-3">
+      <label for="sharpness">Sharpness: </label><input id="sharpness" value="" />
+    </div>
+    <div class="col-md-3">
+      <label for="glare">Glare: </label><input id="glare" value="" />
+    </div>
+    <div class="col-md-3">
+      <label for="dpi">DPI: </label><input id="dpi" value="" />
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-success" onclick="saveImage()">Save</button>
+    </div>
+  </div>
+</div>
+<!-- Modal content -->
+<div id="acuant-modal" class="modal-content" style="display: none; margin-top:30%">
+  <span class="close">&times;</span>
+  <div class="row" style="margin:3%">
+    <h3 id="acuant-modal-text"></h3>
+  </div>
+  <div class="row text-right" style="margin:3%">
+    <button class="btn btn-success mr-2" onClick="startManualCapture()">Start Manual Capture</button>
+  </div>
+</div>
